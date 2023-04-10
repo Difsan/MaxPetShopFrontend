@@ -14,6 +14,10 @@ import { RegisterFormComponent } from './components/forms/register-form/register
 import { ProductListComponent } from './components/lists/product-list/product-list.component';
 import { ReceiptListComponent } from './components/lists/receipt-list/receipt-list.component';
 import { ItemListComponent } from './components/lists/item-list/item-list.component';
+import { CartPageComponent } from './pages/cart-page/cart-page/cart-page.component';
+import { ProductPageComponent } from './pages/product-page/product-page/product-page.component';
+import { ReceiptPageComponent } from './pages/receipt-page/receipt-page/receipt-page.component';
+import { WelcomePageComponent } from './pages/welcome-page/welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { ItemListComponent } from './components/lists/item-list/item-list.compon
     RegisterFormComponent,
     ProductListComponent,
     ReceiptListComponent,
-    ItemListComponent
+    ItemListComponent,
+    CartPageComponent,
+    ProductPageComponent,
+    ReceiptPageComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule
