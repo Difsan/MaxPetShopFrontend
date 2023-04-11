@@ -2,12 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { FormsComponent } from './forms/forms.component';
-import { CardsComponent } from './cards/cards.component';
-import { ListsComponent } from './lists/lists.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { ProductCardComponent } from './cards/product-card/product-card.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ProductCardComponent } from './components/cards/product-card/product-card.component';
 import { ReceiptCardComponent } from './components/cards/receipt-card/receipt-card.component';
 import { LoginFormComponent } from './components/forms/login-form/login-form.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
@@ -18,13 +15,25 @@ import { CartPageComponent } from './pages/cart-page/cart-page/cart-page.compone
 import { ProductPageComponent } from './pages/product-page/product-page/product-page.component';
 import { ReceiptPageComponent } from './pages/receipt-page/receipt-page/receipt-page.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page/welcome-page.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './modules/material/material.module';
+import { HomePageComponent } from './pages/home-page/home-page/home-page.component';
+import { UserPageComponent } from './pages/user-page/user-page/user-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormsComponent,
-    CardsComponent,
-    ListsComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    ProductCardComponent,
+    ReceiptCardComponent,
+    ItemListComponent,
+    ProductListComponent,
+    ReceiptListComponent,
     FooterComponent,
     HeaderComponent,
     ProductCardComponent,
@@ -37,10 +46,18 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page/welcome-
     CartPageComponent,
     ProductPageComponent,
     ReceiptPageComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    HomePageComponent,
+    UserPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule, 
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

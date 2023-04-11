@@ -1,1 +1,21 @@
-<p>login-form works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="cardContains">
+        <form [formGroup]="loginFrom" ngClass="login">
+            <mat-form-field appearance="fill">
+                <mat-label>Email: </mat-label> <input matInput placeholder="Insert your email" formControlName="email"
+                    required />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Password: </mat-label> <input matInput placeholder="Insert your password" formControlName="password"/>
+            </mat-form-field>
+            <div class="btn">
+                <button mat-raised-button color="primary"
+                    (click)="onSubmit()">In</button>
+                <button mat-raised-button color="warn" routerLink="">Back</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
