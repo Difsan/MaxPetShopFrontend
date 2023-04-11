@@ -1,0 +1,26 @@
+.mat-mdc-card {
+    position: relative;
+    border-radius: var(--mdc-elevated-card-container-shape, var(--mdc-shape-medium, 4px));
+    background-color: #add9dd;
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--mdc-elevated-card-container-color, transparent);
+}
+
+.cardContains {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-mdc-card-title {
+    text-align: center;
+}
+
+.btn {
+    margin-right: 20pt;
+    margin-left: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

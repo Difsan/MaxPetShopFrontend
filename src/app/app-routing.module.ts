@@ -6,13 +6,14 @@ import { ProductPageComponent } from "./pages/product-page/product-page/product-
 import { ReceiptPageComponent } from "./pages/receipt-page/receipt-page/receipt-page.component";
 import { CartPageComponent } from "./pages/cart-page/cart-page/cart-page.component";
 import { UserPageComponent } from "./pages/user-page/user-page/user-page.component";
-
+import { RegisterFormComponent } from "./components/forms/register-form/register-form.component";
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'home'
+        redirectTo: '/home'
     },
     {
         path: 'home',
@@ -24,11 +25,13 @@ const routes: Routes = [
     },
     {
         path: 'receipts',
-        component: ReceiptPageComponent
+        component: ReceiptPageComponent,
+        ...canActivate(() => redirectUnauthorizedTo(['/users/login']))
     },
     {
         path: 'carts',
-        component: CartPageComponent
+        component: CartPageComponent,
+        ...canActivate(() => redirectUnauthorizedTo(['/users/login']))
     },
     {
         path: 'users',
@@ -42,6 +45,10 @@ const routes: Routes = [
             {
                 path: 'login',
                 component: LoginFormComponent},
+            {
+                path: 'register',
+                component: RegisterFormComponent
+            },
             
         ]
     }

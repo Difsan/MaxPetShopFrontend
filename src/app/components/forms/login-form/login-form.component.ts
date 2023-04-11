@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 
 @Component({
@@ -8,11 +9,12 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit{
-  
   loginFrom: FormGroup;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
+
   ){
     this.loginFrom = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -25,12 +27,16 @@ export class LoginFormComponent implements OnInit{
   }
 
   onSubmit(): void{
-    this.authService.register(this.loginFrom.value)
+    this.authService.login(this.loginFrom.value)
     .then(response => {
       console.log(response);
-      //add router to where it will send us
+      //add router to send us to login
+      this.router.navigate(['/products']);
+
     })
     .catch(error => console.log(error));
   }
+  
+ 
   
 }
