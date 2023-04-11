@@ -6,5 +6,5 @@ export interface User{
     lastNameDTO: string,
     emailDTO : string,
     passwordDTO: string,
-    cartDTO: Cart
+    //cartDTO: Cart
 }
