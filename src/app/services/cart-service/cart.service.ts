@@ -16,8 +16,8 @@ export class CartService {
     return this.http.get(this.api+"/"+cartId);
   }
 
-  saveCart(cart: Cart): Observable<any>{
-    return this.http.post(this.api, cart);
+  saveCart({}): Observable<any>{
+    return this.http.post(this.api, {});
   }
 
   addItemToList(cartId: string, itemId: string): Observable<any>{

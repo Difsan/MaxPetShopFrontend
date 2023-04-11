@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user.model';
 import { Cart } from 'src/app/models/cart.model'
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { UserServiceService } from 'src/app/services/user-service/user.service';
+import { CartService } from 'src/app/services/cart-service/cart.service';
 
 @Component({
   selector: 'app-register-form',
@@ -20,13 +21,10 @@ export class RegisterFormComponent implements OnInit{
   constructor(
     private authService: AuthService,
     private userService: UserServiceService,
+    private cartService: CartService,
     private router: Router
 
   ){
-    /*this.registerForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null)
-    });*/
 
     this.userForm = new FormGroup({
       id: new FormControl(null),
@@ -63,7 +61,29 @@ export class RegisterFormComponent implements OnInit{
       (answer) => {
         alert("User was added successfully");
         console.log(answer);
+        this.user = answer;
+        console.log(this.user);
+        this.ngUpdateUser();        
       }
     )
+  }
+
+  ngUpdateUser(): void{
+    this.cartService.saveCart({}).subscribe(
+      (answer) => {
+        console.log("Entro al save cart");
+        console.log(answer);
+        if (this.user!=undefined){
+          this.user.cart = answer;
+          console.log(this.user);
+          this.userService.updateUser(this.user.id, this.user).subscribe(
+            (answer) => {
+              console.log("cart updated inside user");
+              console.log(answer);
+            }
+          );
+        }        
+    }
+    );
   }
 }
