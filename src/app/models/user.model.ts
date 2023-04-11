@@ -1,10 +1,10 @@
 import { Cart } from "./cart.model";
 
 export interface User{
-    idDTO: string,
-    nameDTO: string,
-    lastNameDTO: string,
-    emailDTO : string,
-    passwordDTO: string,
+    id: string,
+    name: string,
+    lastName: string,
+    email : string,
+    password: string,
     //cartDTO: Cart
 }

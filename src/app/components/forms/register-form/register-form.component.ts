@@ -29,11 +29,11 @@ export class RegisterFormComponent implements OnInit{
     });*/
 
     this.userForm = new FormGroup({
-      idDTO: new FormControl(null),
-      nameDTO: new FormControl(null),
-      lastNameDTO: new FormControl(null),
-      emailDTO: new FormControl(null, [Validators.required, Validators.email]),
-      passwordDTO: new FormControl(null)
+      id: new FormControl(null),
+      name: new FormControl(null),
+      lastName: new FormControl(null),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null)
     });
   }
   
@@ -47,8 +47,8 @@ export class RegisterFormComponent implements OnInit{
       password: this.userForm.get("password")?.value
     });*/
     
-    this.authService.register({email: this.userForm.get("emailDTO")?.value, 
-    password: this.userForm.get("passwordDTO")?.value})
+    this.authService.register({email: this.userForm.get("email")?.value, 
+    password: this.userForm.get("password")?.value})
     .then(response => {
       console.log(response);
       this.ngSaveUser();
