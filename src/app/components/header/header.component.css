@@ -1,3 +1,9 @@
-.header-buttons{
+.header-buttons {
     align-items: right;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
