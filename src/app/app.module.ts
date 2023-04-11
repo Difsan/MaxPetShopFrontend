@@ -23,6 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './modules/material/material.module';
 import { HomePageComponent } from './pages/home-page/home-page/home-page.component';
 import { UserPageComponent } from './pages/user-page/user-page/user-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { routes } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,9 @@ import { UserPageComponent } from './pages/user-page/user-page/user-page.compone
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule, 
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,9 @@
             <mat-form-field appearance="fill">
                 <mat-label>Password: </mat-label> <input matInput type="password" placeholder="Insert your password" formControlName="password" required />
             </mat-form-field>
+            <div class="goToRegister">
+                <a routerLink="/users/register"><span>Register</span></a>
+            </div>
             <div class="btn">
                 <button mat-raised-button color="primary"
                     (click)="onSubmit()">In</button>

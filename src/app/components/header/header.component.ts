@@ -8,7 +8,6 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent{
-
   constructor(
     private authService: AuthService,
     private router: Router
@@ -16,7 +15,7 @@ export class HeaderComponent{
 
   onClick(){
     this.authService.logOut().then(() => {
-      this.router.navigate(['/products']);
+      this.router.navigate(['/home']);
     }).catch(error => console.log(error));
   }
 }

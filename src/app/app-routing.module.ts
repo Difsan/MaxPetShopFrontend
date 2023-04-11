@@ -9,7 +9,7 @@ import { UserPageComponent } from "./pages/user-page/user-page/user-page.compone
 import { RegisterFormComponent } from "./components/forms/register-form/register-form.component";
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
-const routes: Routes = [
+export const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
