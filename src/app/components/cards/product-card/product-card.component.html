@@ -1,1 +1,21 @@
-<p>product-card works!</p>
+<div class="container-fluid">
+    <mat-card [ngStyle]="{margin: '5px 0px 5px 0px'}">
+        <div [ngStyle]="{backgroundColor: '#add9dd', display: 'flex',  flexDirection: 'column'}">
+            <mat-card-header>
+                <mat-card-title>{{product.name}}</mat-card-title>
+                <mat-card-subtitle>{{product.brand}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{product.image}}" alt="product's photo">
+            <mat-card-content>
+                <mat-card-subtitle><b>For:</b> {{product.animalType}}</mat-card-subtitle>
+                <mat-card-subtitle><b>Category:</b> {{product.category}}</mat-card-subtitle>
+                <p>{{product.description}}</p>
+                <mat-card-subtitle><b>Price:</b> {{product.unitaryPrice}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-actions align="start">
+                <button mat-mini-fab color="primary" (click)="AddToCart()"><mat-icon>More</mat-icon></button>
+                <!--<button mat-mini-fab color="primary" (click)="goToBuy()"><mat-icon>buy</mat-icon> </button>-->
+            </mat-card-actions>
+        </div>
+    </mat-card>
+</div>

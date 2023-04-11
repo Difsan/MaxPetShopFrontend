@@ -26,6 +26,7 @@ import { UserPageComponent } from './pages/user-page/user-page/user-page.compone
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { routes } from './app-routing.module';
     FormsModule, 
     MaterialModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

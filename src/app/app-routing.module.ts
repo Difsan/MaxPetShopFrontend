@@ -37,6 +37,10 @@ export const routes: Routes = [
         path: 'users',
         component: UserPageComponent
     },
+    {
+        path: 'welcome',
+        component: WelcomePageComponent
+    },
 
     {
         path: 'users',
