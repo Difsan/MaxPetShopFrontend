@@ -20,16 +20,16 @@ export class ProductServiceService {
     return this.http.get(this.api+"/"+productId);
   }
 
-  getProductByName(productName: String): Observable<any>{
-    return this.http.get(this.api+"/byName/"+productName);
+  getProductByName(productName: String, productAnimalType: String): Observable<any>{
+    return this.http.get(this.api+"/byName/"+productName+"/animalType/"+productAnimalType);
+  }
+
+  getProductByCategory(productCategory: String, productAnimalType: String): Observable<any>{
+    return this.http.get(this.api+"/byCategory/"+productCategory+"/animalType/"+productAnimalType);
   }
 
   getProductByAnimalType(productAnimalType: String): Observable<any>{
     return this.http.get(this.api+"/byAnimalType/"+productAnimalType);
-  }
-
-  getProductByCategory(productCategory: String): Observable<any>{
-    return this.http.get(this.api+"/byCategory/"+productCategory);
   }
 
   saveProduct(product: Product): Observable<any>{

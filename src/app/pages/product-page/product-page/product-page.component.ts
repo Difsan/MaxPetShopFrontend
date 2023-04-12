@@ -19,19 +19,23 @@ export class ProductPageComponent implements OnInit{
     private route: ActivatedRoute){}
 
   ngOnInit(): void {
-
     this.route.queryParams.subscribe((info)=>{
-      this.choseAnimaltye = JSON.parse(info['data'])
+      if(JSON.stringify(info) !== JSON.stringify({}) 
+      && JSON.parse(info['data']) === "dog" || "cat"){
+        this.choseAnimaltye = JSON.parse(info['data'])
+        this.productService.getProductByAnimalType(this.choseAnimaltye).subscribe({
+          next: (products) => {
+            this.l_products = products;
+            this.total = this.l_products.length;
+          },
+          error: (console.log),
+          complete: (console.log)
+        });
+      }
+      
     })
 
-    this.productService.getProductByAnimalType(this.choseAnimaltye).subscribe({
-      next: (products) => {
-        this.l_products = products;
-        this.total = this.l_products.length;
-      },
-      error: (console.log),
-      complete: (console.log)
-    });
+    
   }
 
 }

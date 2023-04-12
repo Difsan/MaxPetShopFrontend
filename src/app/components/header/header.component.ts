@@ -26,5 +26,24 @@ export class HeaderComponent implements OnInit{
     }).catch(error => console.log(error));
   }
 
-  clearSearch(){}
+  filterProducts(input: string, type: string): void{
+    if (input == "" || type === "Select an option") this.ngOnInit();
+    switch(type){
+      case "name":
+        this.router.navigate(['products/byName'],{
+      queryParams:{
+        data: JSON.stringify({input, type})
+      }});
+        break;
+      case "category":
+        this.router.navigate(['products/byCategory'],{
+      queryParams:{
+        data: JSON.stringify({input, type})
+      }});
+    }
+    
+    //VOY AQUI, HAY QUE MIRAR COMO HAGO PARA QUE EN PRODUCT-PAGE.COMPONENT.TS
+    // ME FILTRE LA LISTA QUE HAY POR NOMBRE O CATEGORIA, LA LISTA QUE YA ESTA
+    // FILTRATA POR TIPO DE ANIMAL
+  }
 }

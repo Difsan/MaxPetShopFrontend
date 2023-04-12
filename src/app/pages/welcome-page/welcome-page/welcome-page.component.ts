@@ -13,7 +13,7 @@ export class WelcomePageComponent {
   }
 
   goToProductList(animalType: string): void{
-    this.router.navigate(['products/byanimalType'],{
+    this.router.navigate(['products/byAnimalType'],{
       queryParams:{
         data: JSON.stringify(animalType)
       }

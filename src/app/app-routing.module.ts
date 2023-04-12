@@ -24,7 +24,15 @@ export const routes: Routes = [
         component: ProductPageComponent
     },
     {
-        path: 'products/byanimalType',
+        path: 'products/byAnimalType',
+        component: ProductPageComponent
+    },
+    {
+        path: 'products/byCategory',
+        component: ProductPageComponent
+    },
+    {
+        path: 'products/byName',
         component: ProductPageComponent
     },
     {
