@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { SharedVariablesService } from 'src/app/services/shared-variables-service/shared-variables.service';
+import { UserServiceService } from 'src/app/services/user-service/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -11,9 +13,11 @@ import { SharedVariablesService } from 'src/app/services/shared-variables-servic
 })
 export class LoginFormComponent implements OnInit {
   loginFrom: FormGroup;
+  user: User | undefined;
 
   constructor(
     private authService: AuthService,
+    private userService: UserServiceService,
     private variablesService: SharedVariablesService,
     private router: Router
 
@@ -25,7 +29,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    console.log(this.variablesService.userId);
   }
 
   onSubmit(): void {
@@ -34,9 +38,25 @@ export class LoginFormComponent implements OnInit {
         console.log(response);
         this.variablesService.setIsAuth(true);
         console.log(this.variablesService.isAuth);
+        this.ngGetUserByEmail(this.loginFrom.get('email')?.value);
         this.router.navigate(['/home']);
       })
       .catch(error => console.log(error));
+  }
+
+  ngGetUserByEmail(email: string): void {
+    this.userService.getUserByEmail(email).subscribe((answer) => {
+      console.log(answer);
+      this.user = answer;
+      console.log(this.user);
+      console.log(this.variablesService.userId);
+      this.variablesService.userId = this.user?.id;
+      console.log(this.variablesService.userId);
+    },
+    (Error) => {
+        console.error('error caught in component' + Error);
+      })
+
   }
 
 

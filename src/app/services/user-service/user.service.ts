@@ -19,6 +19,10 @@ export class UserServiceService {
   getUserByIdCart(cartId: String): Observable<any>{
     return this.http.get(this.api+"/byCartId/"+cartId);
   }
+
+  getUserByEmail(email: String): Observable<any>{
+    return this.http.get(this.api+"/byEmail/"+email);
+  }
   
   saveUser(user: User): Observable<any>{
     return this.http.post(this.api, user);

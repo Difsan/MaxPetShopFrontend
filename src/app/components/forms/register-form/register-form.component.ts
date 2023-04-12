@@ -64,6 +64,9 @@ export class RegisterFormComponent implements OnInit{
         this.user = answer;
         console.log(this.user);
         this.ngUpdateUser();        
+      },
+      (Error) => {
+        console.error('error caught in component' + Error);
       }
     )
   }
@@ -80,9 +83,15 @@ export class RegisterFormComponent implements OnInit{
             (answer) => {
               console.log("cart updated inside user");
               console.log(answer);
+            },
+            (Error) => {
+              console.error('error caught in component' + Error);
             }
           );
         }        
+    }, 
+    (Error) => {
+      console.error('error caught in component' + Error);
     }
     );
   }

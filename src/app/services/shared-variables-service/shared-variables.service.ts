@@ -9,7 +9,7 @@ export class SharedVariablesService {
   isAuth: boolean = false;
   // to emit any change of this variable
   isAuthChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
-  userId: string = '';
+  userId: string|undefined;
   
   setIsAuth(newValue: boolean){
     this.isAuth = newValue;
