@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" routerLink="/home" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="example-icon" (click)="onClick()" aria-label="Example icon-button with menu icon">
         <mat-icon>pets</mat-icon>
     </button>
     <span>MaxPetShop</span>
     <div class="header-search">
-        <input class="inp" matInput placeholder="Enter text" [(ngModel)]="searchingBy"
-            (keydown.backspace)="ngOnInit()" />
+        <input class="inp" type="text" #searchInput matInput placeholder="Enter text" [(ngModel)]="searchingBy"
+             />
         <div ngClass="artistOps">
-            <select class="form-control" [(ngModel)]="typeSearch">
+            <select #searchSelect class="form-control" [(ngModel)]="typeSearch">
                 <option disable selected>Select an option</option>
                 <option selected>category</option>
                 <option selected>name</option>
@@ -17,20 +17,21 @@
     </div>
     <span class="example-spacer"></span>
     <div class="header-buttons">
-        <button mat-icon-button routerLink="/users/login" class="login-icon"
+        <button mat-icon-button *ngIf="this.isAuth!=true" class="login-icon"
             aria-label="Example icon-button with heart icon">
             <mat-icon>face</mat-icon>
         </button>
-        <button mat-icon-button routerLink="/carts" class="chart-icon" aria-label="Example icon-button with share icon">
+        <button mat-icon-button routerLink="/carts" *ngIf="this.isAuth" class="chart-icon" aria-label="Example icon-button with share icon">
             <mat-icon>shopping_cart</mat-icon>
         </button>
-        <button mat-icon-button (click)="onClick()" class="logOut-icon"
-            aria-label="Example icon-button with share icon">
-            <mat-icon>exit_to_app</mat-icon>
-        </button>
-        <button mat-icon-button routerLink="/receipts" class="receipt-icon"
+        <button mat-icon-button *ngIf="this.isAuth" routerLink="/receipts" class="receipt-icon"
             aria-label="Example icon-button with share icon">
             <mat-icon>insert_drive_file</mat-icon>
         </button>
+        <button mat-icon-button *ngIf="this.isAuth" (click)="onClick()" class="logOut-icon"
+            aria-label="Example icon-button with share icon">
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+        
     </div>
 </mat-toolbar>

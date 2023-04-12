@@ -6,4 +6,6 @@ import { Injectable } from '@angular/core';
 export class SharedVariablesService {
 
   choseAnimalType: string='';
+  isAuth: boolean = true;
+  userId: string = '';
 }

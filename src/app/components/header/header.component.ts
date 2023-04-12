@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
+import { SharedVariablesService } from 'src/app/services/shared-variables-service/shared-variables.service';
 
 @Component({
   selector: 'app-header',
@@ -9,16 +10,23 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
 })
 export class HeaderComponent implements OnInit {
   searchingBy: string = '';
-  @ViewChild('searchInput', {static:false}) searchInput: ElementRef | undefined;
-  @ViewChild('searchSelect', {static:false}) searchSelect: ElementRef | undefined;
-  
   p: number = 0;
   @Input() typeSearch: string = "";
 
+  // to clean the search input and select.
+  @ViewChild('searchInput', {static:false}) searchInput: ElementRef | undefined;
+  @ViewChild('searchSelect', {static:false}) searchSelect: ElementRef | undefined;
+  
+  isAuth: boolean = this.variablesService.isAuth;
+
   constructor(
     private authService: AuthService,
+    private variablesService: SharedVariablesService,
     private router: Router
   ) { }
+
+  
+
   ngOnInit(): void {
     if(this.searchInput && this.searchSelect){
       this.searchInput.nativeElement.value = '';
