@@ -17,17 +17,26 @@ export class HeaderComponent implements OnInit {
   @ViewChild('searchInput', {static:false}) searchInput: ElementRef | undefined;
   @ViewChild('searchSelect', {static:false}) searchSelect: ElementRef | undefined;
   
-  isAuth: boolean = this.variablesService.isAuth;
+  
+  isAuth: boolean;
 
   constructor(
     private authService: AuthService,
     private variablesService: SharedVariablesService,
     private router: Router
-  ) { }
+  ) { 
+    this.isAuth = this.variablesService.isAuth;
+    //to suscribe to the change of the service variable
+    variablesService.isAuthChanged.subscribe((newValue: boolean) =>{
+      this.isAuth = newValue;
+    })
+   }
 
   
 
   ngOnInit(): void {
+    console.log("variable in header" + this.variablesService.isAuth);
+    console.log(this.isAuth);
     if(this.searchInput && this.searchSelect){
       this.searchInput.nativeElement.value = '';
       this.searchSelect.nativeElement.value = '';
@@ -37,6 +46,7 @@ export class HeaderComponent implements OnInit {
 
   onClick() {
     this.authService.logOut().then(() => {
+      this.variablesService.setIsAuth(false);
       this.router.navigate(['/home']);
     }).catch(error => console.log(error));
     this.ngOnInit();

@@ -17,7 +17,7 @@
     </div>
     <span class="example-spacer"></span>
     <div class="header-buttons">
-        <button mat-icon-button *ngIf="this.isAuth!=true" class="login-icon"
+        <button mat-icon-button routerLink="/users/login"*ngIf="this.isAuth!=true" class="login-icon"
             aria-label="Example icon-button with heart icon">
             <mat-icon>face</mat-icon>
         </button>

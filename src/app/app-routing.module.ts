@@ -8,6 +8,8 @@ import { CartPageComponent } from "./pages/cart-page/cart-page/cart-page.compone
 import { UserPageComponent } from "./pages/user-page/user-page/user-page.component";
 import { RegisterFormComponent } from "./components/forms/register-form/register-form.component";
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
+import { HomePageComponent } from "./pages/home-page/home-page/home-page.component";
+import { AppComponent } from "./app.component";
 
 export const routes: Routes = [
     {
