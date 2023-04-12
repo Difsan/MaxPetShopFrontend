@@ -24,6 +24,10 @@ export const routes: Routes = [
         component: ProductPageComponent
     },
     {
+        path: 'products/byanimalType',
+        component: ProductPageComponent
+    },
+    {
         path: 'receipts',
         component: ReceiptPageComponent,
         ...canActivate(() => redirectUnauthorizedTo(['/users/login']))
@@ -36,10 +40,6 @@ export const routes: Routes = [
     {
         path: 'users',
         component: UserPageComponent
-    },
-    {
-        path: 'welcome',
-        component: WelcomePageComponent
     },
 
     {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 
@@ -7,15 +7,24 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent{
+export class HeaderComponent implements OnInit{
+  searchingBy: string = '';
+  p: number = 0;
+  @Input() typeSearch: string = "";
+
   constructor(
     private authService: AuthService,
     private router: Router
   ){}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   onClick(){
     this.authService.logOut().then(() => {
       this.router.navigate(['/home']);
     }).catch(error => console.log(error));
   }
+
+  clearSearch(){}
 }

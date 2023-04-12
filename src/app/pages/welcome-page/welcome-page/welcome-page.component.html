@@ -7,12 +7,12 @@
 
     <mat-card [ngStyle]="{margin: '5px 0px 5px 0px'}">
         <div [ngStyle]="{backgroundColor: '#add9dd', display: 'flex',  flexDirection: 'column'}">
-            <img mat-card-image src="" alt="dog photo">
+            <img mat-card-image src="" (click)=" goToProductList('dog')" alt="dog photo">
         </div>
     </mat-card>
 
     <mat-card [ngStyle]="{margin: '5px 0px 5px 0px'}">
         <div [ngStyle]="{backgroundColor: '#add9dd', display: 'flex',  flexDirection: 'column'}">
-            <img mat-card-image src="" alt="cat photo">
+            <img mat-card-image src="" (click)="goToProductList('cat')" alt="cat photo">
         </div>
     </mat-card>
