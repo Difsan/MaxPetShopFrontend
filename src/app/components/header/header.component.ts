@@ -41,9 +41,5 @@ export class HeaderComponent implements OnInit{
         data: JSON.stringify({input, type})
       }});
     }
-    
-    //VOY AQUI, HAY QUE MIRAR COMO HAGO PARA QUE EN PRODUCT-PAGE.COMPONENT.TS
-    // ME FILTRE LA LISTA QUE HAY POR NOMBRE O CATEGORIA, LA LISTA QUE YA ESTA
-    // FILTRATA POR TIPO DE ANIMAL
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedVariablesService } from 'src/app/services/shared-variables-service/shared-variables.service';
 
 @Component({
   selector: 'app-welcome-page',
@@ -8,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class WelcomePageComponent {
   
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private variableService: SharedVariablesService) {
     
   }
 
   goToProductList(animalType: string): void{
+    this.variableService.choseAnimalType='';
     this.router.navigate(['products/byAnimalType'],{
       queryParams:{
         data: JSON.stringify(animalType)
