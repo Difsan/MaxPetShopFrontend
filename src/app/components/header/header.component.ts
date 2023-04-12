@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 
@@ -7,39 +7,52 @@ import { AuthService } from 'src/app/services/auth-service/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   searchingBy: string = '';
+  @ViewChild('searchInput', {static:false}) searchInput: ElementRef | undefined;
+  @ViewChild('searchSelect', {static:false}) searchSelect: ElementRef | undefined;
+  
   p: number = 0;
   @Input() typeSearch: string = "";
 
   constructor(
     private authService: AuthService,
     private router: Router
-  ){}
+  ) { }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    if(this.searchInput && this.searchSelect){
+      this.searchInput.nativeElement.value = '';
+      this.searchSelect.nativeElement.value = '';
+    }
+    
   }
 
-  onClick(){
+  onClick() {
     this.authService.logOut().then(() => {
       this.router.navigate(['/home']);
     }).catch(error => console.log(error));
+    this.ngOnInit();
   }
 
-  filterProducts(input: string, type: string): void{
+  filterProducts(input: string, type: string): void {
     if (input == "" || type === "Select an option") this.ngOnInit();
-    switch(type){
+    switch (type) {
       case "name":
-        this.router.navigate(['products/byName'],{
-      queryParams:{
-        data: JSON.stringify({input, type})
-      }});
+        this.router.navigate(['products/byName'], {
+          queryParams: {
+            data: JSON.stringify({ input, type })
+          }
+        });
+        this.ngOnInit();
         break;
       case "category":
-        this.router.navigate(['products/byCategory'],{
-      queryParams:{
-        data: JSON.stringify({input, type})
-      }});
+        this.router.navigate(['products/byCategory'], {
+          queryParams: {
+            data: JSON.stringify({ input, type })
+          }
+        });
+        this.ngOnInit();
+        break;
     }
   }
 }
