@@ -41,7 +41,10 @@ export class LoginFormComponent implements OnInit {
         this.ngGetUserByEmail(this.loginFrom.get('email')?.value);
         this.router.navigate(['/home']);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        //alert(error);
+      });
   }
 
   ngGetUserByEmail(email: string): void {

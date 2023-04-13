@@ -24,7 +24,7 @@ export class CartService {
     return this.http.post(this.api+"/"+cartId+"/addItem/"+itemId, null)
   }
 
-  removeItemFromList(cartId: string, itemId: string): Observable<any>{
+  removeItemFromList(cartId: string| undefined, itemId: string| undefined): Observable<any>{
     return this.http.post(this.api+"/"+cartId+"/removeItem/"+itemId, null)
   }
 

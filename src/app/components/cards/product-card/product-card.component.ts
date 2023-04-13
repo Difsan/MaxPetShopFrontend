@@ -81,13 +81,16 @@ export class ProductCardComponent implements OnInit {
   }
 
   ngAddItemToCart(item: Item) {
-    this.cartService.getCartById(this.cartId).subscribe((answer) => {
+    /*this.cartService.getCartById(this.cartId).subscribe((answer) => {
       console.log("this is the cartbyId inside add item: " + answer);
-    })
+    })*/
     this.cartService.addItemToList(this.cartId, this.item.id).subscribe((answer) => {
       console.log("this is the cart after add item: " + answer);
-    });
-
-
+    },
+    (error) => {
+      console.log(error)
+      alert("An error occurred while adding the item to the cart: "+ error.error)
+    })
+    
   }
 }

@@ -1,1 +1,28 @@
-<p>cart-page works!</p>
+<div class="container-fluid">
+    <div class="containerproductlist">
+        <div class="titleContainer">
+            <h1><b>Shopping cart</b></h1>
+        </div>
+
+        <div *ngIf="total! > 0" [ngStyle]="{display: 'flex', flexDirection: 'column', margin: '10px 10px 10px 13px'}">
+            <app-item-card *ngFor="let item of items! | paginate:{itemsPerPage: 4, currentPage: p }"
+                [item]="item"></app-item-card>
+        </div>
+
+        <ng-container *ngIf="total! > 0; else noItemsFound">
+            <br />
+            <div class="found">
+                <h4 class="result_text">Total: ${{ cart?.totalPrice }}</h4>
+            </div>
+        </ng-container>
+
+        <ng-template #noItemsFound>
+            <div class="found">
+                <h4 class="result_text">There is no items yet, please add one</h4>
+            </div>
+        </ng-template>
+
+        <pagination-controls class="pagination" (pageChange)="p = $event" previousLabel="Previous"
+            nextLabel="Next"></pagination-controls>
+    </div>
+</div>
