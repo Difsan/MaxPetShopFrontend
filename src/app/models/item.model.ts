@@ -2,8 +2,8 @@ import { Product } from "./product.model"
 
 export interface Item{
 
-    id: string,
-    product: Product,
+    id: string|undefined,
+    product: Product | undefined,
     quantity: number,
     subTotal: number
 }

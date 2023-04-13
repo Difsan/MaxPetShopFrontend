@@ -2,6 +2,6 @@ import { Item } from "./item.model";
 
 export interface Cart{
     id: string,
-    items: Item[],
+    items: Item[] | undefined,
     totalPrice: number
 }

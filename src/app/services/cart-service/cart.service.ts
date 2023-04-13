@@ -12,7 +12,7 @@ export class CartService {
 
   api: string = "http://localhost:8080/carts";
 
-  getCartById(cartId: String): Observable<any>{
+  getCartById(cartId: String|undefined): Observable<any>{
     return this.http.get(this.api+"/"+cartId);
   }
 
@@ -20,12 +20,12 @@ export class CartService {
     return this.http.post(this.api, {});
   }
 
-  addItemToList(cartId: string, itemId: string): Observable<any>{
-    return this.http.post(this.api+"/carts/"+cartId+"/addItem/"+itemId, null)
+  addItemToList(cartId: string| undefined, itemId: string| undefined): Observable<any>{
+    return this.http.post(this.api+"/"+cartId+"/addItem/"+itemId, null)
   }
 
   removeItemFromList(cartId: string, itemId: string): Observable<any>{
-    return this.http.post(this.api+"/carts/"+cartId+"/removeItem/"+itemId, null)
+    return this.http.post(this.api+"/"+cartId+"/removeItem/"+itemId, null)
   }
 
   updateCart(cartId: string, cart: Cart): Observable<any>{

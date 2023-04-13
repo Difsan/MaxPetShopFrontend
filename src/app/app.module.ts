@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ItemCardComponent } from './components/cards/item-card/item-card.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReceiptPageComponent,
     WelcomePageComponent,
     HomePageComponent,
-    UserPageComponent
+    UserPageComponent,
+    ItemCardComponent
   ],
   imports: [
     BrowserModule,

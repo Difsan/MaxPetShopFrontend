@@ -49,6 +49,7 @@ export class HeaderComponent implements OnInit {
     this.authService.logOut().then(() => {
       this.variablesService.setIsAuth(false);
       this.variablesService.userId= undefined;
+      this.variablesService.user= undefined;
       this.router.navigate(['/home']);
     }).catch(error => console.log(error));
     this.ngOnInit();

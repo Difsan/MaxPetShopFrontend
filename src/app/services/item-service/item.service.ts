@@ -16,15 +16,15 @@ export class ItemService {
     return this.http.get(this.api+"/"+itemId);
   }
 
-  saveUser(item: Item): Observable<any>{
+  saveItem(item: Item): Observable<any>{
     return this.http.post(this.api, item);
   }
 
-  updateUser(itemId: string, item: Item): Observable<any>{
+  updateItem(itemId: string, item: Item): Observable<any>{
     return this.http.put(this.api+"/"+itemId, item);
   }
 
-  deleteUser(itemId: string): Observable<any>{
+  deleteItem(itemId: string): Observable<any>{
     return this.http.delete(this.api+"/"+itemId);
   }
 }

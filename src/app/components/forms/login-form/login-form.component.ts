@@ -48,6 +48,7 @@ export class LoginFormComponent implements OnInit {
     this.userService.getUserByEmail(email).subscribe((answer) => {
       console.log(answer);
       this.user = answer;
+      this.variablesService.user = this.user;
       console.log(this.user);
       console.log(this.variablesService.userId);
       this.variablesService.userId = this.user?.id;
