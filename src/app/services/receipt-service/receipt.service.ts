@@ -20,15 +20,15 @@ export class ReceiptService {
     return this.http.get(this.api+"/byUserId/"+userId);
   }
 
-  saveUser(receipt: Receipt): Observable<any>{
+  saveReceipt(receipt: Receipt): Observable<any>{
     return this.http.post(this.api, receipt);
   }
 
-  updateUser(receiptId: string, receipt: Receipt): Observable<any>{
+  updateReceipt(receiptId: string, receipt: Receipt): Observable<any>{
     return this.http.put(this.api+"/"+receiptId, receipt);
   }
 
-  deleteUser(receiptId: string): Observable<any>{
+  deleteReceipt(receiptId: string): Observable<any>{
     return this.http.delete(this.api+"/"+receiptId);
   }
 }

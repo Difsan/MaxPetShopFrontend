@@ -58,9 +58,8 @@ export class CartPageComponent implements OnInit {
     }
   }
 
-  //move to cart page
   removeItem(itemId: string | undefined) {
-    if (this.isAuth) {
+    if (this.isAuth && confirm(`Are you sure of remove that product from your shopping cart?`)) {
       this.cartService.removeItemFromList(this.variablesService.user?.cart?.id, itemId)
       .subscribe(
         (answer) => {
@@ -75,6 +74,10 @@ export class CartPageComponent implements OnInit {
     } else {
       this.router.navigate(['/users/login']);
     }
+  }
+
+  goToReceipt(){
+    this.router.navigate(['/receipts']);
   }
 }
 

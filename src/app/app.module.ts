@@ -28,6 +28,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ItemCardComponent } from './components/cards/item-card/item-card.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ItemCardComponent } from './components/cards/item-card/item-card.compon
     ReactiveFormsModule,
     FormsModule, 
     MaterialModule,
+    MatTableModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     NgxPaginationModule
