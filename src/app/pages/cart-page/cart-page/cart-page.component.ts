@@ -77,7 +77,7 @@ export class CartPageComponent implements OnInit {
   }
 
   goToReceipt(){
-    this.router.navigate(['/receipts']);
+    this.router.navigate(['/receipts/create']);
   }
 }
 

@@ -29,6 +29,7 @@ import { routes } from './app-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ItemCardComponent } from './components/cards/item-card/item-card.component';
 import { MatTableModule } from '@angular/material/table';
+import { ReceiptFormComponent } from './components/forms/receipt-form/receipt-form.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MatTableModule } from '@angular/material/table';
     WelcomePageComponent,
     HomePageComponent,
     UserPageComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    ReceiptFormComponent
   ],
   imports: [
     BrowserModule,

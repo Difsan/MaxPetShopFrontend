@@ -10,6 +10,7 @@ import { RegisterFormComponent } from "./components/forms/register-form/register
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 import { HomePageComponent } from "./pages/home-page/home-page/home-page.component";
 import { AppComponent } from "./app.component";
+import { ReceiptFormComponent } from "./components/forms/receipt-form/receipt-form.component";
 
 export const routes: Routes = [
     {
@@ -69,6 +70,16 @@ export const routes: Routes = [
                 component: RegisterFormComponent
             },
             
+        ]
+    },
+    {
+        path: 'receipts',
+
+        children: [
+            {
+                path:'create',
+                component: ReceiptFormComponent
+            },
         ]
     }
 ];
