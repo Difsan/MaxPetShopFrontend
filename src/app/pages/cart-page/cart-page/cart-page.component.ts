@@ -33,6 +33,7 @@ export class CartPageComponent implements OnInit {
 }
 
   ngOnInit(): void {
+    console.log(this.route.snapshot.url.join('/'));
     this.route.queryParams.subscribe((info)=>{
       if(JSON.stringify(info) !== JSON.stringify({})){
         this.itemId = JSON.parse(info['data']);
@@ -42,7 +43,6 @@ export class CartPageComponent implements OnInit {
     })
 
     if (this.isAuth) {
-      
       this.cartService.getCartById(this.variablesService.user?.cart?.id).subscribe(
         (answer) => {
           console.log(answer);
@@ -50,12 +50,15 @@ export class CartPageComponent implements OnInit {
           this.items = this.cart?.items;
           console.log(this.items);
           this.total = this.items?.length;
-
+          if(this.route.snapshot.url.join('/') === "carts/modify"){
+            this.changeCart();
+          }
         },
         (Error) => {
           console.error('error caught in component' + Error);
         })
     }
+    
   }
 
   removeItem(itemId: string | undefined) {
@@ -78,6 +81,25 @@ export class CartPageComponent implements OnInit {
 
   goToReceipt(){
     this.router.navigate(['/receipts/create']);
+  }
+
+  changeCart(): void{
+    console.log("entrando a cambiar items in cart");
+    console.log("cart before be empty");
+    console.log(this.cart);
+    this.cart!.items = [];
+    this.cart!.totalPrice = 0.0;
+    this.cartService.updateCart(this.cart?.id, this.cart).subscribe(
+      (answer) => {
+        console.log(answer);
+        console.log("cart after be empty");
+        console.log(this.cart);
+        this.router.navigate(['/receipts']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 }
 

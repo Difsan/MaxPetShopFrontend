@@ -7,6 +7,7 @@ import { Item } from 'src/app/models/item.model';
 import { Cart } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart-service/cart.service';
 import { ReceiptService } from 'src/app/services/receipt-service/receipt.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-receipt-form',
@@ -24,7 +25,8 @@ export class ReceiptFormComponent implements OnInit{
   constructor(
     private variablesService: SharedVariablesService,
     private cartService: CartService,
-    private receiptService: ReceiptService
+    private receiptService: ReceiptService,
+    private router: Router
   ) {
     this.receiptForm = new FormGroup({
       id: new FormControl(null),
@@ -52,6 +54,8 @@ export class ReceiptFormComponent implements OnInit{
       (answer)=>{
         console.log("after save user with service");
         console.log(answer);
+        alert("receipt created");
+        this.goToChangeCart();
 
       }, (error) => {
         console.log(error.error);
@@ -70,11 +74,15 @@ export class ReceiptFormComponent implements OnInit{
         if(this.cart?.items!=undefined){
           this.receiptItems = this.cart?.items;
           console.log(this.receiptItems);
-          alert("receipt created")
+          
         }    
     },
     (error) => {
       console.log(error);
     })
+  }
+
+  goToChangeCart(): void{
+    this.router.navigate(['/carts/modify']);
   }
 }

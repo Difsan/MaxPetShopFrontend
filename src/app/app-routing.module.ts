@@ -54,6 +54,11 @@ export const routes: Routes = [
         ...canActivate(() => redirectUnauthorizedTo(['/users/login']))
     },
     {
+        path: 'carts/modify',
+        component: CartPageComponent,
+        ...canActivate(() => redirectUnauthorizedTo(['/users/login']))
+    },
+    {
         path: 'users',
         component: UserPageComponent
     },
