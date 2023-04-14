@@ -1,1 +1,29 @@
-<app-receipt-card></app-receipt-card>
+<div class="container-fluid">
+  <div class="containerReceiptlist">
+      <div class="titleContainer">
+          <h1><b>My Receipts</b></h1>
+      </div>
+
+      <div *ngIf="total! > 0" [ngStyle]="{display: 'flex', flexDirection: 'column', margin: '10px 10px 10px 13px'}">
+        <app-receipt-card *ngFor="let i_receipt of receipts | paginate:{itemsPerPage: 4, currentPage: p }"
+        [receipt]="i_receipt"></app-receipt-card>
+      </div>
+
+      <ng-container *ngIf="total! > 0; else noReceiptsFound">
+          <br />
+          <div class="found">
+              <h4 class="result_text">Founded: {{ total }}</h4>
+          </div>
+      </ng-container>
+
+      <ng-template #noReceiptsFound>
+          <div class="found">
+              <h4 class="result_text">There is no receipts</h4>
+          </div>
+      </ng-template>
+
+      <pagination-controls class="pagination" (pageChange)="p = $event" previousLabel="Previous"
+          nextLabel="Next"></pagination-controls>
+  </div>
+
+</div>

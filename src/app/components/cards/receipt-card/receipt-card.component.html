@@ -1,1 +1,17 @@
-<p>app-receipt-card works</p>
+<mat-card>
+    <mat-card-title>Created on: {{ receipt.createDate | date:'dd/MM/yyyy h:mm a' }}</mat-card-title>
+    <mat-card-content>
+        <p><strong>User:</strong> {{ receipt.user!.name }}</p>
+        <p><strong>Products:</strong></p>
+        <mat-list>
+            <mat-list-item *ngFor="let item of receipt.cart?.items">
+                <span matLine>{{ item.product!.name }}</span>
+                <span matLine>{{ item.quantity }}</span>
+                <span matLine>{{ item.subTotal }}</span>
+            </mat-list-item>
+        </mat-list>
+        <p><strong>Total:</strong> {{ receipt.cart?.totalPrice | currency }}</p>
+    </mat-card-content>
+</mat-card>
+
+

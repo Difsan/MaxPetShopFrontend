@@ -16,7 +16,7 @@ export class ReceiptService {
     return this.http.get(this.api+"/"+receiptId);
   }
 
-  getReceiptByUserId(userId: String): Observable<any>{
+  getReceiptByUserId(userId: String|undefined): Observable<any>{
     return this.http.get(this.api+"/byUserId/"+userId);
   }
 

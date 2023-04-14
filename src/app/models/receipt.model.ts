@@ -3,9 +3,9 @@ import { User } from "./user.model";
 
 export interface Receipt{
     id: string,
-    cart: Cart,
-    createDate: Date,
-    user: User,
+    cart: Cart | undefined,
+    createDate: Date | undefined,
+    user: User | undefined,
     phone: string,
     address: string 
 }
