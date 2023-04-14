@@ -1,11 +1,12 @@
-<div class="container-fluid">
+
     <div class="containerproductlist">
         <div class="titleContainer">
             <h1><b>Shopping cart</b></h1>
         </div>
 
-        <div *ngIf="total! > 0" [ngStyle]="{display: 'flex', flexDirection: 'column', margin: '10px 10px 10px 13px'}">
-            <app-item-card *ngFor="let item of items! | paginate:{itemsPerPage: 4, currentPage: p }"
+        <div *ngIf="total! > 0" [ngStyle]="{display: 'flex', flexDirection: 'column', margin: '10px 10px 10px 13px'}"
+            class="cartContainer">
+            <app-item-card class="cartCard" *ngFor="let item of items! | paginate:{itemsPerPage: 4, currentPage: p }"
                 [item]="item"></app-item-card>
         </div>
 
@@ -22,9 +23,8 @@
             </div>
         </ng-template>
 
-        <button (click)="goToReceipt()">Buy</button>
+        <button  mat-raised-button color="primary" class="submit-button" (click)="goToReceipt()">Buy</button>
 
         <pagination-controls class="pagination" (pageChange)="p = $event" previousLabel="Previous"
             nextLabel="Next"></pagination-controls>
     </div>
-</div>

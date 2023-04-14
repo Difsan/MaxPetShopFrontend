@@ -11,8 +11,13 @@
     padding: 8px;
   }
 
-  .footer-content{
-    
-  text-align: center;
-  align-items: center;
+
+  .footer-content {
+    display: flex;
+    justify-content: center; /* justify content in center */
+    align-items: center; /* align items in center */
+  }
+
+  .footer-content p {
+    text-align: justify;
   }

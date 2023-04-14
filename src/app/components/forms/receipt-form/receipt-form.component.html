@@ -1,6 +1,6 @@
 <form [formGroup]="receiptForm" (ngSubmit)="createReceipt()" class="order-form">
 
-    <h1>Order Form</h1>
+    <h1>Receipt Form</h1>
 
     <mat-card>
         <h2>Customer Information</h2>
@@ -26,7 +26,7 @@
     </mat-card>
 
     <mat-card>
-        <h2>Order Details</h2>
+        <h2>Receipt Details</h2>
         <table mat-table [dataSource]="receiptItems" class="order-table">
             <ng-container matColumnDef="item">
                 <th mat-header-cell *matHeaderCellDef>Item</th>

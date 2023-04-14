@@ -1,0 +1,42 @@
+.containerproductlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers the container horizontally */
+    padding: 20px;
+  }
+  
+  .titleContainer {
+    text-align: center; /* centers the title text horizontally */
+  }
+  
+  .cartContainer {
+    display: flex;
+    flex-wrap: wrap; /* allows the products to wrap to a new line */
+    justify-content: center; /* centers the products horizontally */
+    margin-top: 20px;
+  }
+  
+  .cartContainer *{
+    margin: 10px;
+  }
+
+  .cartCard {
+    flex-basis: 22%; /* sets the width of each product card */
+  }
+  
+  .found {
+    display: flex;
+    justify-content: center; /* centers the found text horizontally */
+   
+  }
+
+  .submit-button {
+    margin-bottom: 40px;
+    display: block;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center; /* centers the pagination horizontally */
+    
+  }
