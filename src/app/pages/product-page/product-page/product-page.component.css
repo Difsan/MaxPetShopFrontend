@@ -1,0 +1,12 @@
+.containerproductlist{
+display: flex;
+justify-content: space-between;
+  flex-direction: column;
+}
+
+.productsContainer{
+    margin: 20px;
+}
+.productsContainer *{
+    margin: 10px;
+}

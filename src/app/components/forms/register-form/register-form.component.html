@@ -1,27 +1,38 @@
 <mat-card class="example-card">
     <mat-card-header>
-        <mat-card-title>Register</mat-card-title>
+      <mat-card-title>Register</mat-card-title>
     </mat-card-header>
-    <mat-card-content class="cardContains">
-        <form [formGroup]="userForm" ngClass="login">
-            <mat-form-field appearance="fill">
-                <mat-label>Name: </mat-label> <input matInput placeholder="Insert your name" formControlName="name" required />
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>LastName: </mat-label> <input matInput placeholder="Insert your lastname" formControlName="lastName" required />
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Email: </mat-label> <input matInput placeholder="Insert your email" formControlName="email"
-                    required />
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Password: </mat-label> <input matInput type="password" placeholder="Insert your password" formControlName="password" required />
-            </mat-form-field>
-            <div class="btn">
-                <button mat-raised-button color="primary"
-                    (click)="ngOnSubmit()">In</button>
-                <button mat-raised-button color="warn" routerLink="">Back</button>
-            </div>
-        </form>
+    <mat-card-content>
+      <form [formGroup]="userForm" class="register-form">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Insert your name" formControlName="name" required>
+          <mat-error *ngIf="userForm.get('name')!.invalid">Please enter a name</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Insert your last name" formControlName="lastName" required>
+          <mat-error *ngIf="userForm.get('lastName')!.invalid">Please enter a last name</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Insert your email" formControlName="email" required>
+          <mat-error *ngIf="userForm.get('email')!.invalid">Please enter a valid email</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Insert your password" formControlName="password" required>
+          <mat-error *ngIf="userForm.get('password')!.invalid">Please enter a password</mat-error>
+        </mat-form-field>
+  
+        <div class="button-row">
+          <button mat-raised-button color="primary" (click)="ngOnSubmit()" [disabled]="userForm.invalid">Register</button>
+          <button mat-raised-button color="warn" routerLink="">Cancel</button>
+        </div>
+      </form>
     </mat-card-content>
-</mat-card>
+  </mat-card>
+  

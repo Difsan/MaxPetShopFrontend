@@ -1,26 +1,41 @@
-.mat-mdc-card {
-    position: relative;
-    border-radius: var(--mdc-elevated-card-container-shape, var(--mdc-shape-medium, 4px));
-    background-color: #add9dd;
-    border-width: 0;
-    border-style: solid;
-    border-color: var(--mdc-elevated-card-container-color, transparent);
-}
-
-.cardContains {
+.example-card {
+    max-width: 500px;
+    margin: auto;
+    background-color: #BACDDB;
+  }
+  
+  .register-form {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-
-.mat-mdc-card-title {
-    text-align: center;
-}
-
-.btn {
-    margin-right: 20pt;
-    margin-left: 20pt;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .mat-error {
+    font-size: 12px;
+    color: #f44336;
+    margin-top: 4px;
+  }
+  
+  .button-row {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-}
+    width: 100%;
+  }
+  
+  button {
+    margin-top: 20px;
+    width: 150px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .example-card {
+      max-width: 100%;
+    }
+  }
+  

@@ -1,29 +1,26 @@
-<div class="container-fluid">
-    <div class="containerproductlist">
-        <div class="titleContainer">
-            <h1><b>Catalog</b></h1>
-        </div>
-
-        <div *ngIf="total > 0" [ngStyle]="{display: 'flex', flexDirection: 'column', margin: '10px 10px 10px 13px'}">
-            <app-product-card *ngFor="let i_product of l_products | paginate:{itemsPerPage: 4, currentPage: p }"
-                [product]="i_product"></app-product-card>
-        </div>
-
-        <ng-container *ngIf="total > 0; else noProductsFound">
-            <br />
-            <div class="found">
-                <h4 class="result_text">Founded: {{ total }}</h4>
-            </div>
-        </ng-container>
-
-        <ng-template #noProductsFound>
-            <div class="found">
-                <h4 class="result_text">There is no products</h4>
-            </div>
-        </ng-template>
-
-        <pagination-controls class="pagination" (pageChange)="p = $event" previousLabel="Previous"
-            nextLabel="Next"></pagination-controls>
+<div class="containerproductlist">
+    <div class="titleContainer">
+        <h1><b>Catalog</b></h1>
     </div>
 
+    <div *ngIf="total > 0"[ngStyle]="{display: 'flex', flexDirection: 'row', margin: '10px 10px 10px 13px'}" class="productsContainer">
+        <app-product-card class="productCard" *ngFor="let i_product of l_products | paginate:{itemsPerPage: 4, currentPage: p }"
+            [product]="i_product"></app-product-card>
+    </div>
+
+    <ng-container *ngIf="total > 0; else noProductsFound">
+        <br />
+        <div class="found">
+            <h4 class="result_text">Founded: {{ total }}</h4>
+        </div>
+    </ng-container>
+
+    <ng-template #noProductsFound>
+        <div class="found">
+            <h4 class="result_text">There is no products</h4>
+        </div>
+    </ng-template>
+
+    <pagination-controls class="pagination" (pageChange)="p = $event" previousLabel="Previous"
+        nextLabel="Next"></pagination-controls>
 </div>

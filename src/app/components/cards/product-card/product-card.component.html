@@ -1,20 +1,17 @@
-<div class="container-fluid">
-    <mat-card [ngStyle]="{margin: '5px 0px 5px 0px'}">
-        <div [ngStyle]="{backgroundColor: '#add9dd', display: 'flex',  flexDirection: 'column'}">
-            <mat-card-header>
-                <mat-card-title>{{product.name}}</mat-card-title>
+<div class="card-container">
+    <mat-card class="card">
+            <mat-card-header class="productHeader">
+                <mat-card-title class="productTitle">{{product.name}}</mat-card-title>
                 <mat-card-subtitle>{{product.brand}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="{{product.image}}" alt="product's photo">
-            <mat-card-content>
+            <img mat-card-image class="productImage" src="{{product.image}}" alt="product's photo">
+            <mat-card-content class="productInfo">
                 <mat-card-subtitle><b>For:</b> {{product.animalType}}</mat-card-subtitle>
                 <mat-card-subtitle><b>Category:</b> {{product.category}}</mat-card-subtitle>
                 <div mat-card-avatar class="card-price">${{ product.unitaryPrice }}</div>
             </mat-card-content>
             <mat-card-actions align="start">
-                <button mat-mini-fab color="primary" (click)="ngSaveItem()"><mat-icon>More</mat-icon></button>
-                <!--<button mat-mini-fab color="primary" (click)="goToBuy()"><mat-icon>buy</mat-icon> </button>-->
+                <button mat-mini-fab color="primary" (click)="ngSaveItem()"><mat-icon>add_shopping_cart</mat-icon></button>
             </mat-card-actions>
-        </div>
     </mat-card>
 </div>
