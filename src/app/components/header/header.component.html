@@ -8,7 +8,7 @@
              />
         <div ngClass="artistOps">
             <select #searchSelect class="form-control" [(ngModel)]="typeSearch">
-                <option disable selected>Select an option</option>
+                <option [disabled]="true" selected>Select an option</option>
                 <option selected>category</option>
                 <option selected>name</option>
             </select>

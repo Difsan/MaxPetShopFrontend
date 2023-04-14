@@ -9,7 +9,7 @@
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Last Name"  [value]="user?.lastName" [disabled]="true">
+            <input matInput placeholder="Last Name" [value]="user?.lastName" [disabled]="true">
         </mat-form-field>
 
         <mat-form-field>
@@ -34,20 +34,25 @@
             </ng-container>
             <ng-container matColumnDef="quantity">
                 <th mat-header-cell *matHeaderCellDef>Quantity</th>
-                <td mat-cell *matCellDef="let item">{{ item.quantity }}</td>
+                <td mat-cell *matCellDef="let item; let i = index">
+                    <input matInput [ngModelOptions]="{standalone: true}" [(ngModel)]="choseQuantity![i]" type="number"
+                        min="1" max="{{item.product?.inventory}}" placeholder="Max {{item.product?.inventory}}"
+                        required>
+                </td>
             </ng-container>
             <ng-container matColumnDef="price">
                 <th mat-header-cell *matHeaderCellDef>Price</th>
                 <td mat-cell *matCellDef="let item">$ {{ item.product?.unitaryPrice }}</td>
             </ng-container>
-            <ng-container matColumnDef="total">
-                <th mat-header-cell *matHeaderCellDef>Total</th>
-                <td mat-cell *matCellDef="let item">$ {{ item.subTotal }}</td>
+            <ng-container matColumnDef="subTotal">
+                <th mat-header-cell *matHeaderCellDef>Subtotal</th>
+                <td mat-cell *matCellDef="let item; let i = index">$ {{ choseQuantity![i] * item.product?.unitaryPrice
+                    }} </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <p>{{cart?.totalPrice}}</p>
+        <p>Total price: {{totalPrice}}</p>
     </mat-card>
 
     <button mat-raised-button color="primary" class="submit-button">Place Order</button>
