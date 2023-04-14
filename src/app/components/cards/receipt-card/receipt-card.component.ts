@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from 'src/app/models/cart.model';
 import { Item } from 'src/app/models/item.model';
 import { Receipt } from 'src/app/models/receipt.model';
@@ -15,19 +15,18 @@ import { SharedVariablesService } from 'src/app/services/shared-variables-servic
   templateUrl: './receipt-card.component.html',
   styleUrls: ['./receipt-card.component.css']
 })
-export class ReceiptCardComponent implements OnInit{
+export class ReceiptCardComponent implements OnInit {
 
   isAuth: boolean;
 
   items: Item[] = [];
 
-  
+
 
   constructor(private router: Router,
-    private productService: ProductServiceService,
-    private itemService: ItemService,
     private variablesService: SharedVariablesService,
-    private cartService: CartService
+    private receiptService: ReceiptService,
+    private route: ActivatedRoute
   ) {
     this.isAuth = this.variablesService.isAuth;
     variablesService.isAuthChanged.subscribe((newValue: boolean) => {
@@ -49,26 +48,25 @@ export class ReceiptCardComponent implements OnInit{
     id: '',
     name: '',
     lastName: '',
-    email : '',
+    email: '',
     password: '',
     cart: this.cart
   }
 
-  @Input() receipt: Receipt ={
+  @Input() receipt: Receipt = {
     id: '',
     cart: this.cart,
     createDate: new Date(),
     user: this.user,
     phone: '',
-    address: '' 
+    address: ''
   }
 
-  
-
-  
-
-  
-
-  
-
+  goToDeleteReceipt(receiptId: string): void {
+    this.router.navigate(['receipts/delete'],{
+      queryParams:{
+        data: JSON.stringify(receiptId)
+      }
+    })
+  }
 }

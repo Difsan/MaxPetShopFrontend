@@ -28,7 +28,7 @@ export class ReceiptService {
     return this.http.put(this.api+"/"+receiptId, receipt);
   }
 
-  deleteReceipt(receiptId: string): Observable<any>{
+  deleteReceipt(receiptId: string|undefined): Observable<any>{
     return this.http.delete(this.api+"/"+receiptId);
   }
 }

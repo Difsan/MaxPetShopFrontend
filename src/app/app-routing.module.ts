@@ -44,6 +44,10 @@ export const routes: Routes = [
         ...canActivate(() => redirectUnauthorizedTo(['/users/login']))
     },
     {
+        path: 'receipts/delete',
+        component: ReceiptPageComponent
+    },
+    {
         path: 'carts',
         component: CartPageComponent,
         ...canActivate(() => redirectUnauthorizedTo(['/users/login']))
@@ -85,6 +89,10 @@ export const routes: Routes = [
                 path:'create',
                 component: ReceiptFormComponent
             },
+            /*{
+                path: 'delete',
+                component: ReceiptPageComponent
+            }*/
         ]
     }
 ];

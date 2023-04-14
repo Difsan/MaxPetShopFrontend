@@ -12,6 +12,9 @@
         </mat-list>
         <p><strong>Total:</strong> {{ receipt.cart?.totalPrice | currency }}</p>
     </mat-card-content>
+    <mat-card-actions align="start">
+        <button mat-mini-fab color="primary" (click)="goToDeleteReceipt(receipt.id)"><mat-icon>Delete</mat-icon></button>
+    </mat-card-actions>
 </mat-card>
 
 
