@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  app-header {
+    flex: 0 0 auto;
+  }
+  
+  router-outlet {
+    flex: 1 0 auto;
+  }
+  
+  app-footer {
+    flex: 0 0 auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }

@@ -1,37 +1,36 @@
-<mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" routerLink="/home" aria-label="Example icon-button with menu icon">
+<mat-toolbar color="primary" class="header">
+    <div class="header-logo">
+      <button mat-icon-button class="example-icon" routerLink="/home" aria-label="Example icon-button with menu icon">
         <mat-icon>pets</mat-icon>
-    </button>
-    <span>MaxPetShop</span>
+      </button>
+      <span class="header-title">MaxPetShop</span>
+    </div>
     <div class="header-search">
-        <input class="inp" type="text" #searchInput matInput placeholder="Enter text" [(ngModel)]="searchingBy"
-             />
-        <div ngClass="artistOps">
-            <select #searchSelect class="form-control" [(ngModel)]="typeSearch">
-                <option [disabled]="true" selected>Select an option</option>
-                <option selected>category</option>
-                <option selected>name</option>
-            </select>
-            <button mat-mini-fab color="primary" (click)="filterProducts(searchingBy, typeSearch)"><mat-icon>search</mat-icon></button>
-        </div>
+      <input class="inp" type="text" #searchInput matInput placeholder="Enter text" [(ngModel)]="searchingBy" />
+      <div ngClass="artistOps">
+        <select #searchSelect class="form-control" [(ngModel)]="typeSearch">
+          <option [disabled]="true" selected>Select an option</option>
+          <option>category</option>
+          <option>name</option>
+        </select>
+        <button mat-mini-fab color="primary" (click)="filterProducts(searchingBy, typeSearch)">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
     </div>
-    <span class="example-spacer"></span>
     <div class="header-buttons">
-        <button mat-icon-button routerLink="/users/login" *ngIf="this.isAuth!=true" class="login-icon"
-            aria-label="Example icon-button with heart icon">
-            <mat-icon>face</mat-icon>
-        </button>
-        <button mat-icon-button routerLink="/carts" *ngIf="this.isAuth" class="chart-icon" aria-label="Example icon-button with share icon">
-            <mat-icon>shopping_cart</mat-icon>
-        </button>
-        <button mat-icon-button *ngIf="this.isAuth" routerLink="/receipts" class="receipt-icon"
-            aria-label="Example icon-button with share icon">
-            <mat-icon>insert_drive_file</mat-icon>
-        </button>
-        <button mat-icon-button *ngIf="this.isAuth" (click)="onClick()" class="logOut-icon"
-            aria-label="Example icon-button with share icon">
-            <mat-icon>exit_to_app</mat-icon>
-        </button>
-        
+      <button mat-icon-button routerLink="/users/login" *ngIf="!isAuth" class="login-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>face</mat-icon>
+      </button>
+      <button mat-icon-button routerLink="/carts" *ngIf="isAuth" class="chart-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="isAuth" routerLink="/receipts" class="receipt-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>insert_drive_file</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="isAuth" (click)="onClick()" class="logOut-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
     </div>
-</mat-toolbar>
+  </mat-toolbar>
+  

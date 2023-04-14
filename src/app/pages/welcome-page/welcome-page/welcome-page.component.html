@@ -1,18 +1,17 @@
-
-    <div class="containerText">
-        <h1 [ngStyle]="{frontSize: '18vw', textAlign:'center'}"><b>Welcome to MaxPetShop Catalog</b></h1>
-        <h2 [ngStyle]="{frontSize: '11vw', textAlign:'center'}"><b>We are glad that you are here!</b></h2>
-        <p [ngStyle]="{ textAlign:'center'}">Please, select an option.</p>
-    </div>
-
-    <mat-card [ngStyle]="{margin: '5px 0px 5px 0px'}">
-        <div [ngStyle]="{backgroundColor: '#add9dd', display: 'flex',  flexDirection: 'column'}">
-            <img mat-card-image src="" (click)=" goToProductList('dog')" alt="dog photo">
-        </div>
+<div class="containerText">
+    <h1 class="headerText">Welcome to MaxPetShop Catalog</h1>
+    <h2 class="subHeaderText">We are glad that you are here!</h2>
+    <p class="bodyText">Please, select an option.</p>
+  </div>
+  
+  <div class="card-container">
+    <mat-card class="card" (click)="goToProductList('dog')">
+      <img mat-card-image src="https://picsum.photos/id/237/200/300" alt="dog photo">
+      <mat-card-title>Dogs</mat-card-title>
     </mat-card>
-
-    <mat-card [ngStyle]="{margin: '5px 0px 5px 0px'}">
-        <div [ngStyle]="{backgroundColor: '#add9dd', display: 'flex',  flexDirection: 'column'}">
-            <img mat-card-image src="" (click)="goToProductList('cat')" alt="cat photo">
-        </div>
+  
+    <mat-card class="card" (click)="goToProductList('cat')">
+      <img mat-card-image src="https://picsum.photos/id/237/200/300" alt="cat photo">
+      <mat-card-title>Cats</mat-card-title>
     </mat-card>
+  </div>

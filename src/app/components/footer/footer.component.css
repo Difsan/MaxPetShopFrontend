@@ -1,5 +1,18 @@
-.footer{
+/*.footer{
     position: fixed;
     bottom: 0;
     width: 100%;
-}
+}*/
+.mat-toolbar {
+    background-color: #c2185b;;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px;
+  }
+
+  .footer-content{
+    
+  text-align: center;
+  align-items: center;
+  }
