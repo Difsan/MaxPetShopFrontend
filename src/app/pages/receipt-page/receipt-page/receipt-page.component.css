@@ -1,0 +1,25 @@
+.containerReceiptlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers the container horizontally */
+    padding: 20px;
+  }
+  
+  .titleContainer {
+    text-align: center; /* centers the title text horizontally */
+  }
+  
+  .receiptsContainer {
+    display: flex;
+    flex-wrap: wrap; /* allows the products to wrap to a new line */
+    justify-content: center; /* centers the products horizontally */
+    margin-top: 20px;
+  }
+  
+  .receiptsContainer *{
+    margin: 10px;
+  }
+  .receiptCard {
+    flex-basis: 22%; /* sets the width of each product card */
+  }
+  

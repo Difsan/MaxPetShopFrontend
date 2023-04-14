@@ -1,19 +1,23 @@
-<mat-card>
+
+
+
+  <mat-card>
     <div class="card-content">
       <div class="card-image-container">
         <img mat-card-image [src]="item.product?.image" alt="{{ item.product?.name}}">
       </div>
       <div class="card-info-container">
         <mat-card-header>
-          <mat-card-title>{{ item.product?.name }}</mat-card-title>
-          <mat-card-subtitle>{{ item.product?.brand }}</mat-card-subtitle>
+          <div class="card-header-title">{{ item.product?.name }}</div>
+          <div class="card-header-subtitle">{{ item.product?.brand }}</div>
         </mat-card-header>
         <mat-card-content>
           <p>{{ item.product?.description }}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button (click)="goToRemoveItem(item.id)">Remove</button>
+          <button mat-raised-button color="primary" (click)="goToRemoveItem(item.id)"><mat-icon>remove_shopping_cart</mat-icon></button>
         </mat-card-actions>
       </div>
     </div>
   </mat-card>
+  

@@ -1,20 +1,28 @@
 <mat-card>
-    <mat-card-title>Created on: {{ receipt.createDate | date:'dd/MM/yyyy h:mm a' }}</mat-card-title>
+    <mat-card-header>
+        <mat-card-title>Created on: {{ receipt.createDate | date:'dd/MM/yyyy h:mm a' }}</mat-card-title>
+      </mat-card-header>
+
     <mat-card-content>
+        <div class="user-info">
         <p><strong>User:</strong> {{ receipt.user!.name }}</p>
+      </div>
+
         <p><strong>Products:</strong></p>
         <mat-list>
             <mat-list-item *ngFor="let item of receipt.cart?.items">
-                <span matLine>{{ item.product!.name }}</span>
-                <span matLine>{{ item.quantity }}</span>
+                <span matLine>{{ item.product!.name }}, qua: </span>
+                <span matLine>{{ item.quantity }}, subtotal: </span>
                 <span matLine>{{ item.subTotal }}</span>
             </mat-list-item>
         </mat-list>
-        <p><strong>Total:</strong> {{ receipt.cart?.totalPrice | currency }}</p>
+        <div class="total-price">
+            <p><strong>Total:</strong> {{ receipt.cart?.totalPrice | currency }}</p>
+          </div>
     </mat-card-content>
-    <mat-card-actions align="start">
-        <button mat-mini-fab color="primary" (click)="goToDeleteReceipt(receipt.id)"><mat-icon>Delete</mat-icon></button>
+    <mat-card-actions align="end">
+        <button mat-mini-fab color="primary" (click)="goToDeleteReceipt(receipt.id)"><mat-icon>delete_forever</mat-icon></button>
     </mat-card-actions>
 </mat-card>
 
-
+  

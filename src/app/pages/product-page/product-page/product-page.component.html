@@ -3,7 +3,8 @@
         <h1><b>Catalog</b></h1>
     </div>
 
-    <div *ngIf="total > 0"[ngStyle]="{display: 'flex', flexDirection: 'row', margin: '10px 10px 10px 13px'}" class="productsContainer">
+    <div *ngIf="total > 0"[ngStyle]="{display: 'flex', flexDirection: 'row', margin: '10px 10px 10px 13px'}" 
+        class="productsContainer">
         <app-product-card class="productCard" *ngFor="let i_product of l_products | paginate:{itemsPerPage: 4, currentPage: p }"
             [product]="i_product"></app-product-card>
     </div>
