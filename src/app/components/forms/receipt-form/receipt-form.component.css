@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     margin: 30px;
+    background-color: #F3E8FF
   }
   
   mat-card {

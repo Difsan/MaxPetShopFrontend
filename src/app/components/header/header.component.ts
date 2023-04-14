@@ -35,9 +35,9 @@ export class HeaderComponent implements OnInit {
   
 
   ngOnInit(): void {
-    console.log("variable in header " + this.variablesService.isAuth);
-    console.log("variable userId in header " + this.variablesService.userId);
-    console.log(this.isAuth);
+    //console.log("variable in header " + this.variablesService.isAuth);
+    //console.log("variable userId in header " + this.variablesService.userId);
+    //console.log(this.isAuth);
     if(this.searchInput && this.searchSelect){
       this.searchInput.nativeElement.value = '';
       this.searchSelect.nativeElement.value = '';

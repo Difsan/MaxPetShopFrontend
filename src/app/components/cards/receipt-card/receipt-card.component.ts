@@ -35,7 +35,7 @@ export class ReceiptCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.receipt);
+    //console.log(this.receipt);
   }
 
   cart: Cart = {

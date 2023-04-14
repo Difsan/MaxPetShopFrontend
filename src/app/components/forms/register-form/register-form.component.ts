@@ -36,7 +36,7 @@ export class RegisterFormComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    //throw new Error('Method not implemented.');
   }
 
   ngOnSubmit(): void{
@@ -48,7 +48,7 @@ export class RegisterFormComponent implements OnInit{
     this.authService.register({email: this.userForm.get("email")?.value, 
     password: this.userForm.get("password")?.value})
     .then(response => {
-      console.log(response);
+      //console.log(response);
       this.ngSaveUser();
       this.router.navigate(['/users/login']);
 
@@ -60,9 +60,9 @@ export class RegisterFormComponent implements OnInit{
     this.userService.saveUser(this.userForm.value).subscribe(
       (answer) => {
         alert("User was added successfully");
-        console.log(answer);
+        //console.log(answer);
         this.user = answer;
-        console.log(this.user);
+        //console.log(this.user);
         this.ngUpdateUser();        
       },
       (Error) => {
@@ -74,18 +74,18 @@ export class RegisterFormComponent implements OnInit{
   ngUpdateUser(): void{
     this.cartService.saveCart({}).subscribe(
       (answer) => {
-        console.log("Entro al save cart");
-        console.log(answer);
+        //console.log("Entro al save cart");
+        //console.log(answer);
         if (this.user!=undefined){
           this.user.cart = answer;
-          console.log(this.user);
+          //console.log(this.user);
           this.userService.updateUser(this.user.id, this.user).subscribe(
             (answer) => {
-              console.log("cart updated inside user");
-              console.log(answer);
+              //console.log("cart updated inside user");
+              //console.log(answer);
             },
             (Error) => {
-              console.error('error caught in component' + Error);
+              //console.error('error caught in component' + Error);
             }
           );
         }        

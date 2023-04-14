@@ -49,15 +49,15 @@ export class ReceiptFormComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    console.log('choseQuantity:', this.choseQuantity);
-    console.log('totalPrice:', this.totalPrice);
+    //console.log('choseQuantity:', this.choseQuantity);
+    //console.log('totalPrice:', this.totalPrice);
     this.loadCart();
     //this.loadProductInventary();
   }
   
   createReceipt(): void{
-    console.log("entrando a crear recibo");
-    console.log("cart BEFORE modify according with input", this.cart);
+    //console.log("entrando a crear recibo");
+    //console.log("cart BEFORE modify according with input", this.cart);
     //modify the cart that will be inside the receipt
     const updatedItems = this.receiptItems.map((item, index) => {
       const newQuantity = this.choseQuantity![index];
@@ -65,10 +65,10 @@ export class ReceiptFormComponent implements OnInit{
       return {...item, quantity: newQuantity, subTotal:newSubTotal}
     })
     this.cart!.items = updatedItems;
-    console.log("cart AFTER modify according with input", this.cart);
+    ////console.log("cart AFTER modify according with input", this.cart);
     const totalPrice = updatedItems.reduce((total, item) => total + item.subTotal, 0);
     this.cart!.totalPrice = totalPrice;
-    console.log("cart AFTER modify the TOTALPRICE", this.cart);
+    ////console.log("cart AFTER modify the TOTALPRICE", this.cart);
     this.receiptForm.get('cart')?.setValue(this.cart);
     this.receiptForm.get('createDate')?.setValue(new Date());
 
@@ -76,8 +76,8 @@ export class ReceiptFormComponent implements OnInit{
 
     this.receiptService.saveReceipt(this.receiptForm.value).subscribe(
       (answer)=>{
-        console.log("after save user with service");
-        console.log(answer);
+        //console.log("after save user with service");
+        //console.log(answer);
         alert("receipt created");
         this.goToChangeCart();
 
@@ -90,14 +90,14 @@ export class ReceiptFormComponent implements OnInit{
   loadCart(): void{
     this.cartService.getCartById(this.variablesService.user?.cart?.id).subscribe(
       (answer)=>{
-        console.log(answer);
+        //console.log(answer);
         this.cart = answer;
         this.receiptForm.get('cart')?.setValue(this.cart);
-        console.log(this.receiptItems);
-        console.log(this.cart);
+        //console.log(this.receiptItems);
+        //console.log(this.cart);
         if(this.cart?.items!=undefined){
           this.receiptItems = this.cart?.items;
-          console.log(this.receiptItems);
+          //console.log(this.receiptItems);
           this.choseQuantity = new Array(this.receiptItems.length).fill(1);
           
         }    

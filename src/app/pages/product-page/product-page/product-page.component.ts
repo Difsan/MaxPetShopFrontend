@@ -32,7 +32,7 @@ export class ProductPageComponent implements OnInit {
           .subscribe({
             next: (products) => {
               this.l_products = products;
-              console.log(this.l_products);
+              //console.log(this.l_products);
               this.total = this.l_products.length;
             },
             error: (console.log),
@@ -45,7 +45,7 @@ export class ProductPageComponent implements OnInit {
       } 
       if(JSON.parse(info['data']).type === "name") {
         this.choseInput = JSON.parse(info['data']).input;
-        console.log(this.variableService.choseAnimalType);
+        //console.log(this.variableService.choseAnimalType);
         this.ngProductsByName(this.choseInput, this.variableService.choseAnimalType);
 
       }
@@ -56,12 +56,12 @@ export class ProductPageComponent implements OnInit {
   }
 
   ngProductsByCategory(category: string, animaltype: string): void {
-    console.log(animaltype);
+    //console.log(animaltype);
     this.productService.getProductByCategory(category, animaltype)
       .subscribe({
         next: (products) => {
           this.l_products = products;
-          console.log(this.l_products);
+          //console.log(this.l_products);
           this.total = this.l_products.length;
           this.variableService.choseAnimalType = '';
         },
@@ -71,13 +71,13 @@ export class ProductPageComponent implements OnInit {
   }
 
   ngProductsByName(name: string, animaltype: string): void {
-    console.log(animaltype);
+    //console.log(animaltype);
     this.productService.getProductByName(name, animaltype)
       .subscribe({
         next: (products) => {
           this.l_products = products;
 
-          console.log(this.l_products);
+          //console.log(this.l_products);
           this.total = this.l_products.length;
           this.variableService.choseAnimalType = '';
         },

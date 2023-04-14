@@ -33,7 +33,7 @@ export class ReceiptPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.route.snapshot.url.join('/'));
+    //console.log(this.route.snapshot.url.join('/'));
     this.route.queryParams.subscribe((info)=>{
       if(this.route.snapshot.url.join('/') === "receipts/delete"){
         this.receiptId = JSON.parse(info['data']);
@@ -46,7 +46,7 @@ export class ReceiptPageComponent implements OnInit {
         .subscribe({
           next: (receipts) => {
             this.receipts = receipts;
-            console.log(this.receipts);
+            //console.log(this.receipts);
             this.total = this.receipts.length;
           },
           error: (console.log),
@@ -59,7 +59,7 @@ export class ReceiptPageComponent implements OnInit {
     if(this.isAuth && confirm("Do you really want to delete this Item?")){
       this.receiptService.deleteReceipt(receiptId).subscribe(
         (answer) =>{
-          console.log(answer);
+          //console.log(answer);
           this.router.navigate(['receipts'])
         },
         (error) => {

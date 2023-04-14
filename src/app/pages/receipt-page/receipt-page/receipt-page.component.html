@@ -3,10 +3,10 @@
         <h1><b>My Receipts</b></h1>
     </div>
 
-    <div *ngIf="total! > 0" [ngStyle]="{display: 'flex', flexDirection: 'column', margin: '10px 10px 10px 13px'}"
+    <div *ngIf="total! > 0" [ngStyle]="{display: 'flex', flexDirection: 'row', margin: '10px 10px 10px 13px'}"
         class="receiptsContainer">
         <app-receipt-card class="receiptCard"
-            *ngFor="let i_receipt of receipts | paginate:{itemsPerPage: 4, currentPage: p }"
+            *ngFor="let i_receipt of receipts | paginate:{itemsPerPage: 2, currentPage: p }"
             [receipt]="i_receipt"></app-receipt-card>
     </div>
 

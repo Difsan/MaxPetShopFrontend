@@ -54,20 +54,19 @@ export class ProductCardComponent implements OnInit {
   }
 
   ngSaveItem() {
-    console.log(this.product)
-    console.log("Default Item: " + this.item.product);
-    // cambiar esto, me interesa que esten logeados, no que no esten
+    //console.log(this.product)
+    //console.log("Default Item: " + this.item.product);
+
     if (this.isAuth) {
       this.item.product = this.product;
       this.item.subTotal = this.item.quantity * this.item.product.unitaryPrice;
-      //this.item2?.product = this.product;
-      console.log("Item before save it: " + this.item.product.id);
+      //console.log("Item before save it: " + this.item.product.id);
       this.itemService.saveItem(this.item).subscribe((answer) => {
-        alert("Item was saved successfully");
-        console.log("this is the answer" + answer);
+        //alert("Item was saved successfully");
+        //console.log("this is the answer" + answer);
         this.item = answer;
-        console.log("ItemId after save it: " + this.item.id);
-        console.log("Item after save it: " + this.item.product?.id);
+        //console.log("ItemId after save it: " + this.item.id);
+        //console.log("Item after save it: " + this.item.product?.id);
         this.ngAddItemToCart(this.item);
       },
         (Error) => {
@@ -85,7 +84,8 @@ export class ProductCardComponent implements OnInit {
       console.log("this is the cartbyId inside add item: " + answer);
     })*/
     this.cartService.addItemToList(this.cartId, this.item.id).subscribe((answer) => {
-      console.log("this is the cart after add item: " + answer);
+      //console.log("this is the cart after add item: " + answer);
+      alert("Product was added to cart successfully");
     },
     (error) => {
       console.log(error)
